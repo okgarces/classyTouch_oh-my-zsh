@@ -14,16 +14,19 @@
   # what font the user is viewing this source code in. Do not replace the
   # escape sequence with a single literal character.
   # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
-  SEPARATOR=$'\ue0b0'
+  #  SEPARATOR=$'\ue0b0'  SEPARATOR=$'\u1405'
+  SEPARATOR=$'\u2023'
+  SEPARATOR=$'\u25B6'
+  SEPARATOR=$'\u227B'
 }
 
 local current_dir='%{$fg[red]%}[%{$reset_color%}%~% %{$fg[red]%}]%{$reset_color%}'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 
 
-PROMPT="%(?,%{$fg[blue]%}┌─╼┤${current_dir}%{$reset_color%} ${git_branch}
-%{$fg[blue]%}└───$SEPARATOR %{$reset_color%} ,%{$fg[red]%}┌─╼┤${current_dir}%{$reset_color%} ${git_branch}
-%{$fg[red]%}└╼> %{$reset_color%}"
+PROMPT="%(?,%{$fg[white]%}┌─┤${current_dir}%{$reset_color%} ${git_branch}
+%{$fg[white]%}└───$SEPARATOR %{$reset_color%},%{$fg[red]%}┌─┤${current_dir}%{$reset_color%} ${git_branch}
+%{$fg[red]%}└$SEPARATOR %{$reset_color%}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}["
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[cyan]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="] %{$reset_color%}"
